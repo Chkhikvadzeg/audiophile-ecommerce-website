@@ -1,12 +1,16 @@
 {
   "files": {
-    "main.css": "/audiophile-ecommerce-website/static/css/main.31d6cfe0.css",
-    "main.js": "/audiophile-ecommerce-website/static/js/main.c4d2c783.js",
+    "main.css": "/audiophile-ecommerce-website/static/css/main.5c3f4a64.css",
+    "main.js": "/audiophile-ecommerce-website/static/js/main.3dd2a465.js",
+    "static/media/logo.svg": "/audiophile-ecommerce-website/static/media/logo.e03974f8eeb36e51813ca6f10681acdc.svg",
+    "static/media/icon-cart.svg": "/audiophile-ecommerce-website/static/media/icon-cart.5e1893a62995fc7b443abe7bee68063e.svg",
     "index.html": "/audiophile-ecommerce-website/index.html",
-    "main.c4d2c783.js.map": "/audiophile-ecommerce-website/static/js/main.c4d2c783.js.map"
+    "static/media/icon-hamburger.svg": "/audiophile-ecommerce-website/static/media/icon-hamburger.f8a9f0cf12d419a7d18556f98d81a47e.svg",
+    "main.5c3f4a64.css.map": "/audiophile-ecommerce-website/static/css/main.5c3f4a64.css.map",
+    "main.3dd2a465.js.map": "/audiophile-ecommerce-website/static/js/main.3dd2a465.js.map"
   },
   "entrypoints": [
-    "static/css/main.31d6cfe0.css",
-    "static/js/main.c4d2c783.js"
+    "static/css/main.5c3f4a64.css",
+    "static/js/main.3dd2a465.js"
   ]
 }
