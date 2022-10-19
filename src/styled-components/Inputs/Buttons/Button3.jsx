@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Button3 = styled.button`
+const Button3 = styled(Link)`
   cursor: pointer;
   background: none;
   border: none;
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 700;
   font-size: 13px;
