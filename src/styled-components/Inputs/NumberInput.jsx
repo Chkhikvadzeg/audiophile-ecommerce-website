@@ -34,6 +34,7 @@ const Container = styled.div`
   line-height: 18px;
   letter-spacing: 1px;
   padding: 0 16px;
+  color: #000000;
 
   button {
     color: rgba(0, 0, 0, 0.5);

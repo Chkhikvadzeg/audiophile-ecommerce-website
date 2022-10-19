@@ -1,10 +1,11 @@
-import NumberInput from "./styled-components/Inputs/NumberInput";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <>
-      <NumberInput />
-    </>
+    <Routes>
+      <Route path="/" element={<Header />} />
+    </Routes>
   );
 }
 
