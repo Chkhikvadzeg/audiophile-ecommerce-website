@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/audiophile-ecommerce-website/static/css/main.31d6cfe0.css",
+    "main.js": "/audiophile-ecommerce-website/static/js/main.c4d2c783.js",
+    "index.html": "/audiophile-ecommerce-website/index.html",
+    "main.c4d2c783.js.map": "/audiophile-ecommerce-website/static/js/main.c4d2c783.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.c4d2c783.js"
+  ]
+}
