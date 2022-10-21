@@ -6,7 +6,7 @@ const Overline = styled.h6`
   line-height: 19px;
   letter-spacing: 10px;
   text-transform: uppercase;
-  color: #D87D4A;
+  color: ${(props) => props.textColor || "#D87D4A"};
 `;
 
 export default Overline;

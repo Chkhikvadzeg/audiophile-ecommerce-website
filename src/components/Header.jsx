@@ -79,6 +79,10 @@ const StyledHeader = styled.header`
     margin: 0 40px;
     gap: 20px;
   }
+
+  @media (min-width: 1440px) {
+    margin: 0 165px;
+  }
 `;
 
 const HeaderLeft = styled.div`

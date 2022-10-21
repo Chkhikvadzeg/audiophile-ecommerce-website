@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
+import { Home, Headphones, Speakers, Earphones } from './components';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Header />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/Headphones" element={<Headphones />} />
+      <Route path="/Speakers" element={<Speakers />} />
+      <Route path="/Earphones" element={<Earphones />} />
     </Routes>
   );
 }
