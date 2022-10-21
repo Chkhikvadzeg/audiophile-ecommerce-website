@@ -14,7 +14,7 @@ const Header = ({ category }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navLinks = ['Home', 'Headphones', 'Speakers', 'Earphones']
   return (
-    <Container>
+    <Container isHome={category === 'Home'}>
       <StyledHeader>
         <HeaderLeft>
           <Burger onClick={() => setIsMenuOpen(prev => !prev)} src={burger} alt="hamburger" />
@@ -61,7 +61,7 @@ const Header = ({ category }) => {
 }
 
 const Container = styled.div`
-  background-color: #191919;
+  background-color: ${props => props.isHome ? '#191919' : '#000000'};
   display: flex;
   justify-content: center;
 `;

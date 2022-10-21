@@ -18,7 +18,7 @@ const NewItem = () => {
             Experience natural, lifelike audio and exceptional build quality made
             for the passionate music enthusiast.
           </p>
-          <Link to="/Headphones"><Button1>See Product</Button1></Link>
+          <Link to="/category/Headphones"><Button1>See Product</Button1></Link>
         </Description>
       </div>
     </Wrapper>
@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   background-color: #191919;
   display: flex;
   justify-content: center;
+  margin-top: -1px;
   & > div {
     width: 100%;
     max-width: 1440px;
