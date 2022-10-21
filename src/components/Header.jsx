@@ -22,7 +22,7 @@ const Header = ({ category }) => {
         </HeaderLeft>
         <Navigation>
           {navLinks.map((link, index) => {
-            return <NavLink to={`${link === 'Home' ? '/' : `/category/${link}`}`} key={link}><NavLinkItem Chosen={link === category}>{link}</NavLinkItem></NavLink>
+            return <NavLink to={`${link === 'Home' ? '/' : `/${link}`}`} key={link}><NavLinkItem Chosen={link === category}>{link}</NavLinkItem></NavLink>
           })}
 
         </Navigation>

@@ -20,7 +20,6 @@ const CategoryName = styled(Heading2)`
   padding: 32px 0;
   background-color: #000000;
   color: #FFFFFF;
-  margin-top: -1px;
 
   @media (min-width: 768px) {
     padding: 100px 0;

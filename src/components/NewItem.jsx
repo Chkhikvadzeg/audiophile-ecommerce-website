@@ -18,7 +18,7 @@ const NewItem = () => {
             Experience natural, lifelike audio and exceptional build quality made
             for the passionate music enthusiast.
           </p>
-          <Link to="/category/Headphones"><Button1>See Product</Button1></Link>
+          <Link to="/Headphones"><Button1>See Product</Button1></Link>
         </Description>
       </div>
     </Wrapper>
@@ -30,7 +30,6 @@ const Wrapper = styled.div`
   background-color: #191919;
   display: flex;
   justify-content: center;
-  margin-top: -1px;
   & > div {
     width: 100%;
     max-width: 1440px;
@@ -54,7 +53,7 @@ const Description = styled.div`
   padding: 108px 24px;
   max-width: 400px;
   width: 100%;
-  margin: -1px auto 0;  
+  margin: 0 auto;  
   p {
     color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
@@ -73,7 +72,6 @@ const Description = styled.div`
 
   @media (min-width: 1440px) {
     margin: 0;
-    margin-top: -1px;
 
     p {
       padding: 0;
