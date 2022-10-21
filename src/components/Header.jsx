@@ -8,10 +8,8 @@ import Button3 from "../styled-components/Inputs/Buttons/Button3"
 import HeadphoneImage from "../assets/image-category-thumbnail-headphones.png"
 import SpeakerImage from "../assets/image-category-thumbnail-speakers.png"
 import EarphoneImage from "../assets/image-category-thumbnail-earphones.png"
-import { useState } from "react"
 
-const Header = ({ category }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
   const navLinks = ['Home', 'Headphones', 'Speakers', 'Earphones']
   return (
     <Container isHome={category === 'Home'}>
@@ -143,7 +141,7 @@ const MobileMenu = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 70px;
-  z-index: 1;
+  z-index: 2;
   transition: left 0.3s ease-in-out;
 
   @media screen and (min-width: 1024px) {

@@ -3,10 +3,10 @@ import NewItem from "./NewItem";
 import NavLinks from './NavLinks'
 
 
-const Home = () => {
+const Home = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <div>
-      <Header category="Home" />
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category="Home" />
       <NewItem />
       <NavLinks />
 
