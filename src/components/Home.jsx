@@ -1,15 +1,13 @@
 import Header from "./Header";
-import styled from "styled-components";
 import NewItem from "./NewItem";
 
 const Home = () => {
   return (
     <div>
-      <Header />
+      <Header category="Home" />
       <NewItem />
     </div>
   );
 }
-
 
 export default Home;

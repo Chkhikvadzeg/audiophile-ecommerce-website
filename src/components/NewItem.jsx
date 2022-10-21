@@ -42,8 +42,8 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    text-align: left;
     & > div {
+      text-align: left;
       background-position: right;
     }
   }
@@ -93,11 +93,6 @@ const Title = styled.div`
   @media (min-width: 1440px) {
     align-items: flex-start;
   }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
 `;
 
 export default NewItem;

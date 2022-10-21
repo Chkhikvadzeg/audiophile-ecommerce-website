@@ -10,8 +10,9 @@ import SpeakerImage from "../assets/image-category-thumbnail-speakers.png"
 import EarphoneImage from "../assets/image-category-thumbnail-earphones.png"
 import { useState } from "react"
 
-const Header = () => {
+const Header = ({ category }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navLinks = ['Home', 'Headphones', 'Speakers', 'Earphones']
   return (
     <Container>
       <StyledHeader>
@@ -20,10 +21,10 @@ const Header = () => {
           <StyledLink to="/"><img src={logo} alt="logo" /></StyledLink>
         </HeaderLeft>
         <Navigation>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/Headphones">Headphones</NavLink>
-          <NavLink to="/Speakers">Speakers</NavLink>
-          <NavLink to="/Earphones">Earphones</NavLink>
+          {navLinks.map((link, index) => {
+            return <NavLink to={`${link === 'Home' ? '/' : `/category/${link}`}`} key={link}><NavLinkItem Chosen={link === category}>{link}</NavLinkItem></NavLink>
+          })}
+
         </Navigation>
         <MobileMenu isMenuOpen={isMenuOpen}>
           <MobileNavLink>
@@ -55,7 +56,7 @@ const Header = () => {
           <Cart src={cart} alt="cart" />
         </HeaderRight>
       </StyledHeader>
-    </Container>
+    </Container >
   )
 }
 
@@ -114,14 +115,17 @@ const Navigation = styled.nav`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: #fff;
   font-weight: 700;
   font-size: 13px;
   line-height: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #FFFFFF;
-  transition: color 0.3s ease-in-out;
+`;
+
+const NavLinkItem = styled.span`
+  color: ${(props) => props.Chosen ? "#D87D4A" : "#FFFFFF"};
+  transition: all .3s ease-in-out;
 
   &:hover {
     color: #D87D4A;
