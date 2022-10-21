@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/audiophile-ecommerce-website/static/css/main.5a53581a.css",
-    "main.js": "/audiophile-ecommerce-website/static/js/main.ef0a3f01.js",
+    "main.js": "/audiophile-ecommerce-website/static/js/main.32f7b062.js",
     "static/media/image-category-thumbnail-headphones.png": "/audiophile-ecommerce-website/static/media/image-category-thumbnail-headphones.fbd401d9c735a217286f.png",
     "static/media/image-category-thumbnail-speakers.png": "/audiophile-ecommerce-website/static/media/image-category-thumbnail-speakers.bbb1a70b6ebc42d18df7.png",
     "static/media/image-category-thumbnail-earphones.png": "/audiophile-ecommerce-website/static/media/image-category-thumbnail-earphones.6e8830d475e04b7b9627.png",
@@ -12,10 +12,10 @@
     "static/media/icon-arrow-right.svg": "/audiophile-ecommerce-website/static/media/icon-arrow-right.357b9db81a798d76397efa2f4ad3409f.svg",
     "static/media/icon-hamburger.svg": "/audiophile-ecommerce-website/static/media/icon-hamburger.f8a9f0cf12d419a7d18556f98d81a47e.svg",
     "main.5a53581a.css.map": "/audiophile-ecommerce-website/static/css/main.5a53581a.css.map",
-    "main.ef0a3f01.js.map": "/audiophile-ecommerce-website/static/js/main.ef0a3f01.js.map"
+    "main.32f7b062.js.map": "/audiophile-ecommerce-website/static/js/main.32f7b062.js.map"
   },
   "entrypoints": [
     "static/css/main.5a53581a.css",
-    "static/js/main.ef0a3f01.js"
+    "static/js/main.32f7b062.js"
   ]
 }
