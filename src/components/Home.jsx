@@ -2,6 +2,7 @@ import Header from "./Header";
 import NewItem from "./NewItem";
 import NavLinks from './NavLinks'
 import HomeItems from "./HomeItems";
+import Advertisement from "./Advertisement";
 
 
 const Home = ({ isMenuOpen, setIsMenuOpen }) => {
@@ -11,6 +12,7 @@ const Home = ({ isMenuOpen, setIsMenuOpen }) => {
       <NewItem />
       <NavLinks />
       <HomeItems />
+      <Advertisement />
     </>
   );
 }
