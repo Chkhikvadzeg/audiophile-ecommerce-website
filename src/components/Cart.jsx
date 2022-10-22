@@ -2,11 +2,7 @@ import styled from "styled-components"
 import Button1 from "../styled-components/Inputs/Buttons/Button1"
 import Heading6 from "../styled-components/typography/Headings/Heading6"
 
-export default function Cart({ cartItems, setCartItems }) {
-
-  const total = cartItems.reduce((acc, item) => {
-    return acc + item.quantity
-  }, 0)
+export default function Cart({ cartItems, setCartItems, total }) {
 
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity

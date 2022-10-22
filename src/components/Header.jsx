@@ -21,6 +21,9 @@ const Header = (
   }
 ) => {
   const navLinks = ['Home', 'Headphones', 'Speakers', 'Earphones']
+  const total = cartItems.reduce((acc, item) => {
+    return acc + item.quantity
+  }, 0)
   return (
     <Container isHome={category === 'Home'}>
       <StyledHeader>
@@ -62,8 +65,9 @@ const Header = (
         </MobileMenu>
         <HeaderRight>
           <Cart onClick={() => setIsCartOpen(prev => !prev)} src={cart} alt="cart" />
+          {total > 0 && <CartTotal>{total}</CartTotal>}
         </HeaderRight>
-        {isCartOpen && <CartContainer cartItems={cartItems} setCartItems={setCartItems} />}
+        {isCartOpen && <CartContainer cartItems={cartItems} setCartItems={setCartItems} total={total} />}
       </StyledHeader>
     </Container >
   )
@@ -190,6 +194,7 @@ const HeaderRight = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 
   @media screen and (min-width: 1024px) {
     width: auto;
@@ -214,6 +219,21 @@ const Burger = styled.img`
 
 const Cart = styled.img`
   cursor: pointer;
+`;
+
+const CartTotal = styled.span`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #D87D4A;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #FFFFFF;
 `;
 
 export default Header
