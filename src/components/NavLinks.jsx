@@ -52,9 +52,10 @@ const Wrapper = styled.div`
     margin: 150px auto 96px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1024px) {
     gap: 30px;
     margin: 200px auto 170px;
+    padding: 0 165px;
   }
 `;
 

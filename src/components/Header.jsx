@@ -75,12 +75,12 @@ const StyledHeader = styled.div`
   max-width: 1440px;
 
   @media (min-width: 768px) {
-    margin: 0 40px;
     gap: 20px;
+    padding: 32px 40px;
   }
 
-  @media (min-width: 1440px) {
-    margin: 0 165px;
+  @media (min-width: 1024px) {
+    padding: 32px 165px;
   }
 `;
 

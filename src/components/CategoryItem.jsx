@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 0 80px;
+    padding: 0 165px;
   }
 
 `;

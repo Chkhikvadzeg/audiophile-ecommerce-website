@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Category from "./components/Category";
 import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import Product from "./components/Product";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
         <Route path="/:category" element={<Category isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
+        <Route path="/:product/:id" element={<Product isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
       </Routes>
       <GlobalStyle isMenuOpen={isMenuOpen} />
       {isMenuOpen && <BlackScreen onClick={() => setIsMenuOpen(false)} />}

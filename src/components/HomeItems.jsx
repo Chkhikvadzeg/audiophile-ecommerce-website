@@ -53,9 +53,10 @@ const Wrapper = styled.div`
   }
 
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1024px) {
     gap: 48px;
     margin-bottom: 200px;
+    padding: 0 165px;
   }
 `
 

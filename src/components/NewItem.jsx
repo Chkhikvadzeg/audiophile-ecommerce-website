@@ -32,6 +32,7 @@ const Wrapper = styled.div`
   background-color: #191919;
   display: flex;
   justify-content: center;
+  padding: 0 24px;
   & > div {
     width: 100%;
     max-width: 1440px;
@@ -44,12 +45,14 @@ const Wrapper = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    padding: 0 40px;
     & > div {
       background-image: url(${ImageHeaderTablet});
     }
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1024px) {
+    padding: 0 165px;
     & > div {
       text-align: left;
       background-position: right;
