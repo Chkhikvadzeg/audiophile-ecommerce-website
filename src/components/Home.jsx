@@ -3,6 +3,7 @@ import NewItem from "./NewItem";
 import NavLinks from './NavLinks'
 import HomeItems from "./HomeItems";
 import Advertisement from "./Advertisement";
+import Footer from "./Footer";
 
 
 const Home = ({ isMenuOpen, setIsMenuOpen }) => {
@@ -13,6 +14,7 @@ const Home = ({ isMenuOpen, setIsMenuOpen }) => {
       <NavLinks />
       <HomeItems />
       <Advertisement />
+      <Footer category="Home" />
     </>
   );
 }

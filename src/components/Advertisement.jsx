@@ -18,8 +18,16 @@ export default function Advertisement() {
 
 const Wrapper = styled.div`
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 120px auto;
   padding: 0 24px;
+
+  @media (min-width: 768px) {
+    margin: 96px auto;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 200px auto;
+  }
 `;
 
 const Content = styled.div`

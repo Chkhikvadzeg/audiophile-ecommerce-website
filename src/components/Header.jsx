@@ -58,13 +58,13 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
   )
 }
 
-const Container = styled.div`
+const Container = styled.header`
   background-color: ${props => props.isHome ? '#191919' : '#000000'};
   display: flex;
   justify-content: center;
 `;
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
   width: 100%;
   margin: 0;
   padding: 32px 24px;
