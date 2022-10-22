@@ -4,11 +4,11 @@ import Header from './Header'
 import Heading2 from '../styled-components/typography/Headings/Heading2'
 import styled from 'styled-components'
 
-export default function Category() {
+export default function Category({ isMenuOpen, setIsMenuOpen }) {
   const { category } = useParams()
   return (
     <>
-      <Header category={category}></Header>
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category={category}></Header>
       <CategoryName>{category}</CategoryName>
     </>
   )

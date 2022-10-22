@@ -16,10 +16,10 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
       <StyledHeader>
         <HeaderLeft>
           <Burger onClick={() => setIsMenuOpen(prev => !prev)} src={burger} alt="hamburger" />
-          <StyledLink to="/"><img src={logo} alt="logo" /></StyledLink>
+          <StyledLink onClick={() => setIsMenuOpen(false)} to="/"><img src={logo} alt="logo" /></StyledLink>
         </HeaderLeft>
         <Navigation>
-          {navLinks.map((link, index) => {
+          {navLinks.map(link => {
             return <NavLink to={`${link === 'Home' ? '/' : `/${link}`}`} key={link}><NavLinkItem Chosen={link === category}>{link}</NavLinkItem></NavLink>
           })}
 
@@ -28,7 +28,7 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
           <MobileNavLink>
             <img src={HeadphoneImage} alt="headphones" />
             <span>Headphones</span>
-            <Button3 to='/Headphones'>
+            <Button3 onClick={() => setIsMenuOpen(false)} to='/Headphones'>
               <img src={arrow} alt="arrow" />
               <span>Shop</span>
             </Button3>
@@ -36,7 +36,7 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
           <MobileNavLink>
             <img src={SpeakerImage} alt="speakers" />
             <span>Speakers</span>
-            <Button3 to='/Speakers'>
+            <Button3 onClick={() => setIsMenuOpen(false)} to='/Speakers'>
               <img src={arrow} alt="arrow" />
               <span>Shop</span>
             </Button3>
@@ -44,7 +44,7 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
           <MobileNavLink>
             <img src={EarphoneImage} alt="earphones" />
             <span>Earphones</span>
-            <Button3 to='/Earphones'>
+            <Button3 onClick={() => setIsMenuOpen(false)} to='/Earphones'>
               <img src={arrow} alt="arrow" />
               <span>Shop</span>
             </Button3>

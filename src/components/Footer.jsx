@@ -14,7 +14,7 @@ export default function Footer({ category }) {
           </Link>
           <Nav>
             {NavLinks.map(link => {
-              return <li><StyledLink isChosen={link === category} key={link} to={`${link === 'Home' ? '/' : `/${link}`}`}>{link}</StyledLink></li>
+              return <ListItem isChosen={link === category} key={link}><StyledLink to={`${link === 'Home' ? '/' : `/${link}`}`}>{link}</StyledLink></ListItem>
             })}
           </Nav>
         </Top>
@@ -123,10 +123,14 @@ const Nav = styled.ul`
   }
 `;
 
+const ListItem = styled.li`
+  color: ${props => props.isChosen ? '#D87D4A' : '#FFFFFF'};
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${props => props.isChosen ? '#D87D4A' : '#FFFFFF'};
   font-weight: 700;
+  color: inherit;
   font-size: 13px;
   line-height: 25px;
   letter-spacing: 2px;
