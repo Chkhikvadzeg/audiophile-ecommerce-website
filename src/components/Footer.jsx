@@ -45,23 +45,14 @@ export default function Footer({ category }) {
 }
 
 const Wrapper = styled.footer`
-  padding: 0 24px;
   background: #101010;
   color: #FFFFFF;
-
-  @media (min-width: 768px) {
-    padding: 0 40px;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0 165px;
-  }
 `;
 
 const Content = styled.div`
   max-width: 1440px;
   margin: 0 auto;
-  padding: 52px 0 38px;
+  padding: 52px 24px 38px;
   position: relative;
 
   &:before {
@@ -76,18 +67,19 @@ const Content = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 60px 0 46px;
+    padding: 60px 40px 46px;
 
     &:before {
       left: 40px;
+      transform: translateX(0);
     }
   }
 
   @media (min-width: 1024px) {
-    padding: 75px 0 48px;
+    padding: 75px 165px 48px;
 
     &:before {
-      left: 50px;
+      left: 165px;
     }
   }
 `;

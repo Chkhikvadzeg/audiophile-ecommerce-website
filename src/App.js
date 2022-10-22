@@ -4,6 +4,7 @@ import Category from "./components/Category";
 import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Product from "./components/Product";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -41,6 +42,16 @@ function App() {
             setIsCartOpen={setIsCartOpen}
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen} />}
+        />
+        <Route path="/checkout" element={
+          <Checkout
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            isCartOpen={isCartOpen}
+            setIsCartOpen={setIsCartOpen}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+          />}
         />
       </Routes>
       <GlobalStyle

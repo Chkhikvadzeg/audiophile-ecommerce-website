@@ -6,7 +6,7 @@ const SubHeading = styled.h4`
   line-height: 25px;
   letter-spacing: 0.9px;
   text-transform: uppercase;
-  color: ${props => props.isError ? '#D87D4A' : '#CD2C2C'};
+  color: ${props => props.isError ? '#CD2C2C' : props.textColor};
 `;
 
 export default SubHeading;

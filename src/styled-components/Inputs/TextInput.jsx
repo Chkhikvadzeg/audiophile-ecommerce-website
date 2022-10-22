@@ -7,7 +7,7 @@ const TextInput = (props) => {
         <span>{props.label}</span>
         {props.isError && <span>{props.error}</span>}
       </LabelDiv>
-      <Input id={props.id} type="text" placeholder={props.placeholder} />
+      <Input id={props.id} type={props.type ? props.type : 'text'} placeholder={props.placeholder} />
     </Label>
   );
 }
@@ -32,6 +32,15 @@ const Input = styled.input`
   height: 56px;
   caret-color: #D87D4A;
 
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
   
   &::placeholder {
     font-weight: 700;

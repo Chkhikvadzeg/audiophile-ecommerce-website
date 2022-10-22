@@ -3,7 +3,7 @@ import styled from "styled-components";
 const RadioInput = (props) => {
 
   return (
-    <Label htmlFor={props.id}>
+    <Label onClick={props.onClick} htmlFor={props.id}>
       <Input id={props.id} type="radio" name={props.name} value={props.value} />
       <CustomInput />
       <Border />

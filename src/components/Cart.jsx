@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import Button1 from "../styled-components/Inputs/Buttons/Button1"
 import Heading6 from "../styled-components/typography/Headings/Heading6"
+import { Link } from "react-router-dom"
 
-export default function Cart({ cartItems, setCartItems, total }) {
+export default function Cart({ cartItems, setCartItems, total, setIsCartOpen }) {
 
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity
@@ -57,7 +58,9 @@ export default function Cart({ cartItems, setCartItems, total }) {
           <p>Total</p>
           <p>$ {totalPrice},00</p>
         </Total>
-        <Checkout>checkout</Checkout>
+        <Link to='/checkout'>
+          <Checkout onClick={() => setIsCartOpen(false)}>checkout</Checkout>
+        </Link>
       </CartItems>
     </CartContainer>
   )

@@ -4,7 +4,6 @@ const Heading2 = styled.h2`
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
-  text-align: center;
   letter-spacing: 1.07px;
   text-transform: uppercase;
   color: ${props => props.color ? props.color : "#000000"};

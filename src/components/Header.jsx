@@ -67,7 +67,7 @@ const Header = (
           <Cart onClick={() => setIsCartOpen(prev => !prev)} src={cart} alt="cart" />
           {total > 0 && <CartTotal>{total}</CartTotal>}
         </HeaderRight>
-        {isCartOpen && <CartContainer cartItems={cartItems} setCartItems={setCartItems} total={total} />}
+        {isCartOpen && <CartContainer setIsCartOpen={setIsCartOpen} cartItems={cartItems} setCartItems={setCartItems} total={total} />}
       </StyledHeader>
     </Container >
   )
@@ -234,6 +234,8 @@ const CartTotal = styled.span`
   justify-content: center;
   font-size: 12px;
   color: #FFFFFF;
+  pointer-events: none;
+  cursor: default;
 `;
 
 export default Header
