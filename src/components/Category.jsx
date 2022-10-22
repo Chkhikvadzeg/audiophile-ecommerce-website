@@ -3,6 +3,11 @@ import { useParams } from 'react-router-dom'
 import Header from './Header'
 import Heading2 from '../styled-components/typography/Headings/Heading2'
 import styled from 'styled-components'
+import data from '../data.json'
+import CategoryItem from './CategoryItem'
+import NavLinks from './NavLinks'
+import Advertisement from './Advertisement'
+import Footer from './Footer'
 
 export default function Category({ isMenuOpen, setIsMenuOpen }) {
   const { category } = useParams()
@@ -10,6 +15,15 @@ export default function Category({ isMenuOpen, setIsMenuOpen }) {
     <>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category={category}></Header>
       <CategoryName>{category}</CategoryName>
+      <Items>
+        {data.map((item, index) => {
+          return item.category === category.toLowerCase() && <CategoryItem index={index} key={item.id} item={item} />
+        })}
+      </Items>
+      <NavLinks />
+      <Advertisement />
+      <Footer category={category} />
+
     </>
   )
 }
@@ -24,4 +38,11 @@ const CategoryName = styled(Heading2)`
   @media (min-width: 768px) {
     padding: 100px 0;
   }
+`;
+
+const Items = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  margin: 64px 0 120px;
 `;
