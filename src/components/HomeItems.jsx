@@ -15,20 +15,20 @@ export default function HomeItems() {
         <div>
           <Heading1 textColor="#FFFFFF">zx9 speaker</Heading1>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <Link to="/Speakers"><StyledButton>see product</StyledButton></Link>
+          <Link to="/product/6"><StyledButton>see product</StyledButton></Link>
         </div>
       </OrangeSpeaker>
       <GreySpeaker>
         <div>
           <Heading4> ZX7 SPEAKER</Heading4>
-          <Link to="/Speakers"><TransparentButton>see product</TransparentButton></Link>
+          <Link to="/product/1"><TransparentButton>see product</TransparentButton></Link>
         </div>
       </GreySpeaker>
       <GreyEarphone>
         <div></div>
         <div>
           <Heading4> YX1 EARPHONES</Heading4>
-          <Link to="/Earphones"><TransparentButton>see product</TransparentButton></Link>
+          <Link to="/product/1"><TransparentButton>see product</TransparentButton></Link>
         </div>
       </GreyEarphone>
     </Wrapper>

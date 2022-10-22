@@ -20,7 +20,7 @@ const NewItem = () => {
             Experience natural, lifelike audio and exceptional build quality made
             for the passionate music enthusiast.
           </p>
-          <Link to="/Headphones"><Button1>See Product</Button1></Link>
+          <Link to="/product/4"><Button1>See Product</Button1></Link>
         </Description>
       </div>
     </Wrapper>

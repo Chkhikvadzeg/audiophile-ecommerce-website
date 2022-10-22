@@ -7,16 +7,50 @@ import Product from "./components/Product";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
-        <Route path="/:category" element={<Category isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
-        <Route path="/:product/:id" element={<Product isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
+        <Route path="/" element={
+          <Home
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            isCartOpen={isCartOpen}
+            setIsCartOpen={setIsCartOpen}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+          />
+        } />
+        <Route path="/:category" element={
+          <Category
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            isCartOpen={isCartOpen}
+            setIsCartOpen={setIsCartOpen}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+          />}
+        />
+        <Route path="/:product/:id" element={
+          <Product
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            isCartOpen={isCartOpen}
+            setIsCartOpen={setIsCartOpen}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen} />}
+        />
       </Routes>
-      <GlobalStyle isMenuOpen={isMenuOpen} />
-      {isMenuOpen && <BlackScreen onClick={() => setIsMenuOpen(false)} />}
+      <GlobalStyle
+        isCartOpen={isCartOpen}
+        isMenuOpen={isMenuOpen}
+      />
+      {(isMenuOpen || isCartOpen) && <BlackScreen onClick={() => {
+        setIsMenuOpen(false);
+        setIsCartOpen(false);
+      }} />}
     </>
   );
 }
@@ -39,7 +73,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    overflow: ${props => props.isMenuOpen ? 'hidden' : 'auto'};
+    overflow: ${props => props.isMenuOpen || props.isCartOpen ? 'hidden' : 'auto'};
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 `
 

@@ -6,10 +6,24 @@ import Advertisement from "./Advertisement";
 import Footer from "./Footer";
 
 
-const Home = ({ isMenuOpen, setIsMenuOpen }) => {
+const Home = (
+  { isMenuOpen,
+    setIsMenuOpen,
+    isCartOpen,
+    setIsCartOpen,
+    cartItems,
+    setCartItems
+  }) => {
   return (
     <>
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category="Home" />
+      <Header
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        isCartOpen={isCartOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        setIsCartOpen={setIsCartOpen}
+        category="Home" />
       <NewItem />
       <NavLinks />
       <HomeItems />

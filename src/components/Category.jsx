@@ -9,11 +9,26 @@ import NavLinks from './NavLinks'
 import Advertisement from './Advertisement'
 import Footer from './Footer'
 
-export default function Category({ isMenuOpen, setIsMenuOpen }) {
+export default function Category(
+  { isMenuOpen,
+    setIsMenuOpen,
+    isCartOpen,
+    setIsCartOpen,
+    cartItems,
+    setCartItems }
+) {
   const { category } = useParams()
   return (
     <>
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category={category}></Header>
+      <Header
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        category={category}
+      />
       <CategoryName>{category}</CategoryName>
       <Items>
         {data.map((item, index) => {

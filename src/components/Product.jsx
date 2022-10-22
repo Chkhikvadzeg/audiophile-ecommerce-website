@@ -11,22 +11,64 @@ import NavLinks from "./NavLinks"
 import Advertisement from './Advertisement'
 import Footer from './Footer'
 
-export default function Product({ isMenuOpen, setIsMenuOpen }) {
+export default function Product(
+  { isMenuOpen,
+    setIsMenuOpen,
+    isCartOpen,
+    setIsCartOpen,
+    cartItems,
+    setCartItems
+  }
+) {
   const { id } = useParams()
   const product = data.find(item => +item.id === +id);
   const category = product.category[0].toUpperCase() + product.category.slice(1);
   const [quantity, setQuantity] = useState(1);
+
   const decreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   }
+
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   }
+
+  const addToCart = () => {
+    if (!cartItems.some(item => item.id === product.id)) {
+      const item = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image.mobile,
+        quantity
+      }
+      setCartItems([...cartItems, item])
+      return;
+    } else {
+      const newCartItems = [...cartItems].map(item => {
+        if (item.id === product.id) {
+          item.quantity += quantity;
+        }
+        return item;
+      });
+      setCartItems(newCartItems);
+    }
+    setQuantity(1);
+  }
+
   return (
     <>
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} category={category} />
+      <Header
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        category={category}
+      />
       <Wrapper>
         <Content>
           <StyledLink to={`/${category}`}>Go Back</StyledLink>
@@ -53,7 +95,7 @@ export default function Product({ isMenuOpen, setIsMenuOpen }) {
                   <span>{quantity}</span>
                   <span onClick={increaseQuantity}>+</span>
                 </Add>
-                <Button1>Add to Cart</Button1>
+                <Button1 onClick={addToCart}>Add to Cart</Button1>
               </AddToCart>
             </Info>
           </Top>

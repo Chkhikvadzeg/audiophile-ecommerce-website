@@ -8,8 +8,18 @@ import Button3 from "../styled-components/Inputs/Buttons/Button3"
 import HeadphoneImage from "../assets/image-category-thumbnail-headphones.png"
 import SpeakerImage from "../assets/image-category-thumbnail-speakers.png"
 import EarphoneImage from "../assets/image-category-thumbnail-earphones.png"
+import CartContainer from "./Cart"
 
-const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
+const Header = (
+  { category,
+    isMenuOpen,
+    setIsMenuOpen,
+    isCartOpen,
+    setIsCartOpen,
+    cartItems,
+    setCartItems
+  }
+) => {
   const navLinks = ['Home', 'Headphones', 'Speakers', 'Earphones']
   return (
     <Container isHome={category === 'Home'}>
@@ -51,8 +61,9 @@ const Header = ({ category, isMenuOpen, setIsMenuOpen }) => {
           </MobileNavLink>
         </MobileMenu>
         <HeaderRight>
-          <Cart src={cart} alt="cart" />
+          <Cart onClick={() => setIsCartOpen(prev => !prev)} src={cart} alt="cart" />
         </HeaderRight>
+        {isCartOpen && <CartContainer cartItems={cartItems} setCartItems={setCartItems} />}
       </StyledHeader>
     </Container >
   )
@@ -73,6 +84,7 @@ const StyledHeader = styled.div`
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 1440px;
+  position: relative;
 
   @media (min-width: 768px) {
     gap: 20px;
