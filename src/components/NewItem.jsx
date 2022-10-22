@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Heading1 from "../styled-components/typography/Headings/Heading1";
 import OverLine from "../styled-components/typography/SubHeadings/Overline";
 import Button1 from "../styled-components/Inputs/Buttons/Button1";
-import ImageHeader from "../assets/home/mobile/image-header.jpg";
+import ImageHeaderMobile from "../assets/home/mobile/image-header.jpg";
+import ImageHeaderTablet from "../assets/home/tablet/image-header.jpg";
+import ImageHeaderDesktop from "../assets/home/desktop/image-hero.jpg";
 import { Link } from "react-router-dom";
 
 const NewItem = () => {
@@ -34,17 +36,24 @@ const Wrapper = styled.div`
     width: 100%;
     max-width: 1440px;
     margin: 0 165px;
-    background-image: url(${ImageHeader});
+    background-image: url(${ImageHeaderMobile});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     text-align: center;
   }
 
+  @media screen and (min-width: 768px) {
+    & > div {
+      background-image: url(${ImageHeaderTablet});
+    }
+  }
+
   @media (min-width: 1440px) {
     & > div {
       text-align: left;
       background-position: right;
+      background-image: url(${ImageHeaderDesktop});
     }
   }
 `;
