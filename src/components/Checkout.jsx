@@ -1,13 +1,16 @@
 import Header from './Header'
 import Footer from './Footer'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import TextInput from '../styled-components/Inputs/TextInput'
 import SubTitle from '../styled-components/typography/SubHeadings/SubHeading'
 import RadioInput from '../styled-components/Inputs/RadioInput'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Heading6 from '../styled-components/typography/Headings/Heading6'
 import Button1 from '../styled-components/Inputs/Buttons/Button1'
+import { useForm } from "react-hook-form";
+import resolver from './YupSchema'
+import SubmittedModal from './SubmittedModal'
 
 export default function Checkout(
   { isMenuOpen,
@@ -15,12 +18,52 @@ export default function Checkout(
     isCartOpen,
     setIsCartOpen,
     cartItems,
-    setCartItems
+    setCartItems,
+    setIsConfirmationOpen,
   }) {
+  const navigate = useNavigate()
+  const [timer, setTimer] = useState(10)
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      const interval = setInterval(() => {
+        setTimer(timer - 1)
+      }, 1000)
+      if (timer === 0) {
+        navigate('/')
+      }
+      return () => clearInterval(interval)
+    }
+  }, [timer, cartItems, navigate])
+
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver });
   const [isEMoney, setIsEMoney] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
+
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity
   }, 0)
+
+  const onSubmit = () => {
+    setSubmitted(true)
+    setIsConfirmationOpen(true)
+  };
+
+  const onError = () => {
+    setSubmitted(false)
+    setIsConfirmationOpen(false)
+  };
+
+  if (cartItems.length === 0) {
+    return (
+      <EmptyCart>
+        <h1>Your cart is empty</h1>
+        <Link to='/'>Go back</Link>
+        <span>Redirecting in {timer} seconds</span>
+      </EmptyCart>
+    )
+  }
+
   return (
     <Wrapper>
       <Header
@@ -33,23 +76,23 @@ export default function Checkout(
       />
       <CheckoutContainer>
         <StyledLink to="/">Go Back</StyledLink>
-        <Content>
+        <Content onSubmit={handleSubmit(onSubmit, onError)}>
           <Left>
             <InputGroup>
               <SubTitle textColor="#D87D4A">billing details</SubTitle>
               <Inputs>
-                <TextInput label="Name" placeholder="Alexei Ward" id="name" type="text" />
-                <TextInput label="Email" placeholder="alexei@mail.com" id="email" type="email" />
-                <TextInput label="Phone Number" placeholder="+1 202-555-0136" id="phone" type="tel" />
+                <TextInput register={register} errors={errors} label="Name" placeholder="Alexei Ward" id="name" type="text" />
+                <TextInput register={register} errors={errors} label="Email" placeholder="alexei@mail.com" id="email" type="email" />
+                <TextInput register={register} errors={errors} label="Phone Number" placeholder="+1 202-555-0136" id="phone" type="tel" />
               </Inputs>
             </InputGroup>
             <InputGroup>
               <SubTitle textColor="#D87D4A">shipping info</SubTitle>
               <Inputs>
-                <TextInput label="address" placeholder="Your Address" id="address" type="text" />
-                <TextInput label="ZIP Code" placeholder="ZIP Code" id="zip" type="number" />
-                <TextInput label="City" placeholder="New York" id="city" type="text" />
-                <TextInput label="Country" placeholder="United States" id="country" type="text" />
+                <TextInput register={register} errors={errors} label="address" placeholder="Your Address" id="address" type="text" />
+                <TextInput register={register} errors={errors} label="ZIP Code" placeholder="ZIP Code" id="zip" type="number" />
+                <TextInput register={register} errors={errors} label="City" placeholder="New York" id="city" type="text" />
+                <TextInput register={register} errors={errors} label="Country" placeholder="United States" id="country" type="text" />
               </Inputs>
             </InputGroup>
             <InputGroup>
@@ -58,14 +101,14 @@ export default function Checkout(
                 <RadioInputsCont>
                   <span>Payment Method</span>
                   <RadioInputs>
-                    <RadioInput onClick={() => setIsEMoney(true)} label="e-Money" id="e-Money" name="payment" />
-                    <RadioInput onClick={() => setIsEMoney(false)} label="Cash on Delivery" id="cash" name="payment" />
+                    <RadioInput register={register} onClick={() => setIsEMoney(true)} label="e-Money" id="e-Money" name="payment" />
+                    <RadioInput register={register} onClick={() => setIsEMoney(false)} label="Cash on Delivery" id="cash" name="payment" />
                   </RadioInputs>
                 </RadioInputsCont>
                 {isEMoney &&
                   <Inputs>
-                    <TextInput label="e-Money Number" placeholder="e-Money Number" id="e-money-number" type="number" />
-                    <TextInput label="e-Money PIN" placeholder="e-Money PIN" id="e-money-pin" type="number" />
+                    <TextInput register={register} errors={errors} required={isEMoney} label="e-Money Number" placeholder="e-Money Number" id="e-money-number" type="number" />
+                    <TextInput register={register} errors={errors} required={isEMoney} label="e-Money PIN" placeholder="e-Money PIN" id="e-money-pin" type="number" />
                   </Inputs>
                 }
               </>
@@ -110,12 +153,30 @@ export default function Checkout(
             <Button>CONTINUE & PAY</Button>
           </Right>
         </Content>
+        {submitted && <SubmittedModal setCartItems={setCartItems} cartItems={cartItems} totalPrice={totalPrice} setIsConfirmationOpen={setIsConfirmationOpen} />}
       </CheckoutContainer>
       <Footer />
 
     </Wrapper >
   )
 }
+
+const EmptyCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: #D87D4A;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+`;
 
 const Wrapper = styled.div`
   background-color: #FAFAFA;
@@ -151,7 +212,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Content = styled.div`
+const Content = styled.form`
   display: grid;
   grid-template-columns: 1fr;
   gap:32px;
@@ -238,7 +299,6 @@ const CartItem = styled.div`
   align-items: center;
   gap: 24px;
 `
-
 
 const LeftCart = styled.div`
   display: flex;

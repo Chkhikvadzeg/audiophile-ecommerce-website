@@ -9,6 +9,7 @@ import Checkout from "./components/Checkout";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   return (
@@ -51,14 +52,16 @@ function App() {
             setIsCartOpen={setIsCartOpen}
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}
+            setIsConfirmationOpen={setIsConfirmationOpen}
           />}
         />
       </Routes>
       <GlobalStyle
         isCartOpen={isCartOpen}
         isMenuOpen={isMenuOpen}
+        isConfirmationOpen={isConfirmationOpen}
       />
-      {(isMenuOpen || isCartOpen) && <BlackScreen onClick={() => {
+      {(isMenuOpen || isCartOpen || isConfirmationOpen) && <BlackScreen isConfirmationOpen={isConfirmationOpen} onClick={() => {
         setIsMenuOpen(false);
         setIsCartOpen(false);
       }} />}
@@ -84,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    overflow: ${props => props.isMenuOpen || props.isCartOpen ? 'hidden' : 'auto'};
+    overflow: ${props => props.isMenuOpen || props.isCartOpen || props.isConfirmationOpen ? 'hidden' : 'auto'};
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -93,9 +96,9 @@ const GlobalStyle = createGlobalStyle`
 
 const BlackScreen = styled.div`
   position: fixed;
-  top: 91px;
+  top: ${props => props.isConfirmationOpen ? '0' : '91px'};
   left: 0;
-  height: calc(100% - 91px);
+  height: ${props => props.isConfirmationOpen ? '100vh' : 'calc(100vh - 91px)'};
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;

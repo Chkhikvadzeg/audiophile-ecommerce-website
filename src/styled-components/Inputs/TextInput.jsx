@@ -2,12 +2,26 @@ import styled from 'styled-components';
 
 const TextInput = (props) => {
   return (
-    <Label isError={props.isError} htmlFor={props.id}>
-      <LabelDiv isError={props.isError}>
+    <Label
+      isError={props?.errors?.[props.label]}
+      htmlFor={props.id}
+    >
+      <LabelDiv isError={props?.errors?.[props.label]}>
         <span>{props.label}</span>
-        {props.isError && <span>{props.error}</span>}
+        {
+          props?.errors?.[props.label]
+          &&
+          <Error isError={props?.errors?.[props.label]}>{props?.errors?.[props.label]?.message}</Error>
+        }
       </LabelDiv>
-      <Input id={props.id} type={props.type ? props.type : 'text'} placeholder={props.placeholder} />
+      <Input
+        onChange={props.onChange}
+        {...props.register(props.label, {
+          required: true,
+        })}
+        id={props.id}
+        type={props.type ? props.type : 'text'}
+        placeholder={props.placeholder} />
     </Label>
   );
 }
@@ -66,12 +80,14 @@ const LabelDiv = styled.div`
     color: ${(props) => (props.isError ? '#CD2C2C' : '#000000')};
   }
 
-  span:nth-child(2) {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.2px;
-  }
+`;
+
+const Error = styled.span`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  color: ${(props) => (props.isError ? '#CD2C2C' : '#000000')};
 `;
 
 export default TextInput;
