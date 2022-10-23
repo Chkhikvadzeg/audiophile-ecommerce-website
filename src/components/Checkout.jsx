@@ -102,7 +102,7 @@ export default function Checkout(
                   <span>Payment Method</span>
                   <RadioInputs>
                     <RadioInput register={register} onClick={() => setIsEMoney(true)} label="e-Money" id="e-Money" name="payment" />
-                    <RadioInput register={register} onClick={() => setIsEMoney(false)} label="Cash on Delivery" id="cash" name="payment" />
+                    <RadioInput checked register={register} onClick={() => setIsEMoney(false)} label="Cash on Delivery" id="cash" name="payment" />
                   </RadioInputs>
                 </RadioInputsCont>
                 {isEMoney &&

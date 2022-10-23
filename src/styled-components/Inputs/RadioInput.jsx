@@ -4,7 +4,7 @@ const RadioInput = (props) => {
 
   return (
     <Label onClick={props.onClick} htmlFor={props.id}>
-      <Input {...props.register(props.name, { required: true })} id={props.id} type="radio" name={props.name} value={props.value} />
+      <Input checked={props.checked} {...props.register(props.name, { required: true })} id={props.id} type="radio" name={props.name} value={props.value} />
       <CustomInput />
       <Border />
       <span>{props.label}</span>
